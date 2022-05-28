@@ -60,19 +60,22 @@ public class MotdCommand extends SimpleCommand {
                     minecraftMotd.port_v6 = result1[11];
                 }
             }
-            String message = "";
+            String message = "Motd: " + minecraftMotd.motd + "\n协议版本: "+ minecraftMotd.protocol + "\n版本: " + minecraftMotd.version_name + "\n在线: " + minecraftMotd.player_count + "/" + minecraftMotd.max_players + "\nUniqueID: " + minecraftMotd.unique_id;
             switch (result1.length) {
                 case 7:
-                    message = "Motd: " + minecraftMotd.motd + "\n协议版本: "+ minecraftMotd.protocol + "\n版本: " + minecraftMotd.version_name + "\n在线: " + minecraftMotd.player_count + "/" + minecraftMotd.max_players + "\nUniqueID: " + minecraftMotd.unique_id;
                     minecraftMotd.type = "PocketMine";
                     break;
                 case 10:
-                    message = "Motd: " + minecraftMotd.motd + "\n协议版本: "+ minecraftMotd.protocol + "\n版本: " + minecraftMotd.version_name + "\n在线: " + minecraftMotd.player_count + "/" + minecraftMotd.max_players + "\nUniqueID: " + minecraftMotd.unique_id + "\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode;
+                    message = message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode);
                     minecraftMotd.type = "Nukkit";
                     break;
                 case 12:
-                    message = "Motd: " + minecraftMotd.motd + "\n协议版本: "+ minecraftMotd.protocol + "\n版本: " + minecraftMotd.version_name + "\n在线: " + minecraftMotd.player_count + "/" + minecraftMotd.max_players + "\nUniqueID: " + minecraftMotd.unique_id + "\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode + "\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6;
-                    minecraftMotd.type = "Bedrock Dedicated Server/Geyser";
+                    message = message.concat("\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
+                    if (minecraftMotd.port_v6.equals("-1")) {
+                        minecraftMotd.type = "Geyser";
+                    } else {
+                        minecraftMotd.type = "Bedrock Dedicated Server";
+                    }
             }
             sender.getGroup().sendMessage(message + "\n服务端: " + minecraftMotd.type);
         } else {
