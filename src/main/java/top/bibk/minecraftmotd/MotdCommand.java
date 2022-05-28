@@ -70,7 +70,7 @@ public class MotdCommand extends SimpleCommand {
                     minecraftMotd.type = "Nukkit";
                     break;
                 case 12:
-                    message = message.concat("\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
+                    message = message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode + "\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
                     if (minecraftMotd.port_v6.equals("-1")) {
                         minecraftMotd.type = "Geyser";
                     } else {
