@@ -11,7 +11,7 @@ import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
 public final class Main extends JavaPlugin {
     public static final top.bibk.minecraftmotd.Main INSTANCE = new top.bibk.minecraftmotd.Main();
     private Main() {
-        super(new JvmPluginDescriptionBuilder("top.bibk.MinecraftMotd", "0.1.0")
+        super(new JvmPluginDescriptionBuilder("top.bibk.MinecraftMotd", "0.1.2")
                 .name("mirai-console-minecraft-motd")
                 .info("Query Minecraft Bedrock Edition Motd by mirai-console")
                 .author("ShrBox")
