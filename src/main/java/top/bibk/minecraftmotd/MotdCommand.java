@@ -76,6 +76,10 @@ public class MotdCommand extends SimpleCommand {
                     } else {
                         minecraftMotd.type = "Bedrock Dedicated Server";
                     }
+                    break;
+                case 13:
+                    message =  message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode + "\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
+                    minecraftMotd.type = "Bedrock Dedicated Server";
             }
             sender.getGroup().sendMessage(message + "\n服务端: " + minecraftMotd.type);
         } else {
